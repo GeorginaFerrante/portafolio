@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PORTFOLIO DE GEORGINA FERRANTE
+  ------------------------------------------------------------
+  CÓMO EDITAR RÁPIDO
+  1) Todo lo que dice ✏️ es texto o link a completar.
+  2) Los recuadros rayados (.ph) son lugares para imágenes.
+     Cada uno dice qué imagen conviene poner. Reemplazá el
+     <div class="ph">…</div> por un <img src="img/tu-imagen.webp" alt="…">
+  3) Las etiquetas punteadas amarillas (.nota) son ayudas de
+     edición. Para ocultarlas TODAS de una vez, borrá la clase
+     "notas" de la etiqueta <html> de acá abajo.
+  4) Los casos (las fichas que se abren al tocar una tienda,
+     un libro, etc.) están al final de este archivo, dentro de
+     etiquetas <template>. Se editan como HTML normal.
+  ============================================================
+-->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Georgina Ferrante | Product Designer y UX Engineer</title>
+<meta name="description" content="Portfolio de Georgina Ferrante, Product Designer y UX Engineer en Córdoba, Argentina. Trabajo entre UX/UI e implementación: transformo necesidades de usuarios y negocio en soluciones claras, funcionales y viables.">
+<!-- Vista previa al compartir el link (LinkedIn, WhatsApp, mail).
+     ✏️ Cuando publiques el sitio, cambiá "img/compartir.jpg" por la dirección completa,
+     por ejemplo https://tu-dominio.com/img/compartir.jpg (LinkedIn la necesita completa). -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Georgina Ferrante | Product Designer y UX Engineer">
+<meta property="og:description" content="Un recorrido por mis proyectos de producto, UX Research, e-commerce e ilustración.">
+<meta property="og:image" content="img/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E7A986">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="img/icono-32.png">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+
+<meta name="theme-color" content="#2A1813">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400&family=VT323&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/vendor/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+
+<!-- ============================================================
+     BARRA SUPERIOR — siempre visible
+     ============================================================ -->
+<header class="barra">
+  <a class="barra__nombre" href="#inicio" data-ir="inicio">Georgina Ferrante</a>
+  <div class="barra__acciones">
+    <a class="tecla tecla--chica" href="CV-Georgina-Ferrante.pdf" download="CV-Georgina-Ferrante.pdf">Descargar CV</a>
+    <a class="tecla tecla--chica" href="https://www.linkedin.com/in/georgina-ferrante-010544239/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="tecla tecla--chica tecla--verde" href="mailto:georginaferrante9@gmail.com">Hablemos</a>
+    <button class="tecla tecla--chica barra__menu" type="button" aria-expanded="false" aria-controls="indice">Índice</button>
+  </div>
+</header>
+
+<nav class="indice" id="indice" aria-label="Índice del portfolio" hidden>
+  <ol class="indice__lista"></ol>
+</nav>
+
+<!-- ============================================================
+     HILO CONDUCTOR — el objeto que recorre todo el sitio.
+     Una chispa dorada baja por un hilo mientras scrolleás.
+     Cada nudo es un capítulo: tocalo para saltar ahí.
+     (Los nudos los arma main.js a partir de la lista CAPITULOS)
+     ============================================================ -->
+<nav class="hilo" aria-label="Capítulos del recorrido">
+  <svg class="hilo__svg" viewBox="0 0 24 1000" preserveAspectRatio="none" aria-hidden="true">
+    <path class="hilo__fondo" d=""/>
+    <path class="hilo__trazo" d=""/>
+  </svg>
+  <div class="hilo__nudos"></div>
+  <div class="hilo__chispa" aria-hidden="true"><span></span></div>
+  <p class="hilo__rotulo" aria-live="polite"></p>
+</nav>
+
+<!-- ============================================================
+     ESCENARIO FIJO — todas las escenas viven acá, una encima de
+     la otra. El scroll no mueve la página: mueve una "cámara"
+     (ver main.js, sección LÍNEA DE TIEMPO).
+     ============================================================ -->
+<div class="escenario" id="escenario">
+
+  <!-- ==========================================================
+       ESCENA 1 — LA COMPUTADORA
+       Adentro de la pantalla vive el "mundo": un escritorio
+       retro (sobre mí) y, más abajo, la calle de e-commerce.
+       ========================================================== -->
+  <section class="escena escena--pc" id="inicio" aria-label="Inicio">
+
+    <div class="mundo" id="mundo">
+      <div class="mundo__pista" id="mundoPista">
+
+        <!-- CIELO + ESCRITORIO RETRO -->
+        <div class="cielo" id="sobre-mi">
+          <img class="nube nube--a" src="img/nube-a.webp" alt="" width="1100" height="446" decoding="async">
+          <img class="nube nube--b" src="img/nube-b.webp" alt="" width="1100" height="485" decoding="async">
+          <img class="nube nube--c" src="img/nube-a.webp" alt="" width="1100" height="446" decoding="async">
+
+          <ul class="escritorio" aria-label="Accesos directos">
+            <li><button class="icono" type="button" data-ir="ecommerce"><span class="icono__dibujo icono__dibujo--tienda" aria-hidden="true"></span>E-commerce</button></li>
+            <li><button class="icono" type="button" data-ir="libro"><span class="icono__dibujo icono__dibujo--libro" aria-hidden="true"></span>Mi libro</button></li>
+            <li><button class="icono" type="button" data-ir="gadget"><span class="icono__dibujo icono__dibujo--gadget" aria-hidden="true"></span>SuperGadget</button></li>
+            <li><button class="icono" type="button" data-ir="ilustraciones"><span class="icono__dibujo icono__dibujo--pincel" aria-hidden="true"></span>Ilustración</button></li>
+            <li><a class="icono" href="mailto:georginaferrante9@gmail.com"><span class="icono__dibujo icono__dibujo--carta" aria-hidden="true"></span>Escribime</a></li>
+          </ul>
+
+          <article class="ventana" id="ventanaSobreMi">
+            <header class="ventana__barra">
+              <span class="ventana__titulo">sobre-mi.txt</span>
+              <span class="ventana__botones" aria-hidden="true"><i></i><i></i><i></i></span>
+            </header>
+            <div class="ventana__cuerpo">
+              <div class="ventana__foto">
+                <img class="ventana__retrato" src="img/perfil.webp" alt="Georgina Ferrante" width="400" height="400" decoding="async">
+              </div>
+              <div>
+                <h2 class="ventana__h">Hola, soy Georgina.</h2>
+                <p>Diseño experiencias digitales centradas en la usabilidad y en las personas. Vengo del diseño gráfico y las artes visuales, y hoy trabajo entre UX/UI e implementación: transformo necesidades de usuarios y negocio en soluciones claras, funcionales y viables.</p>
+                <p class="ventana__chico">Design Thinking, benchmarking, análisis competitivo, evaluación heurística y prototipado en Figma.</p>
+                <div class="teclas">
+                  <a class="tecla" href="CV-Georgina-Ferrante.pdf" download="CV-Georgina-Ferrante.pdf">Descargar CV</a>
+                  <button class="tecla tecla--verde" type="button" data-ir="ecommerce">Ver mis trabajos</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <p class="cielo__pista" aria-hidden="true">Seguí bajando: abajo está la ciudad</p>
+        </div>
+
+        <!-- CALLE E-COMMERCE (scroll horizontal) -->
+        <div class="calle" id="calle">
+          <div class="calle__cielo" aria-hidden="true"></div>
+          <div class="calle__capa calle__capa--lejos" id="capaLejos"><picture><source media="(max-width: 900px)" srcset="img/ciudad-lejos-movil.webp"><img class="skyline skyline--lejos" src="img/ciudad-lejos.webp" alt="" width="6420" height="440" decoding="async"></picture></div>
+          <div class="calle__capa calle__capa--medio" id="capaMedio"><picture><source media="(max-width: 900px)" srcset="img/ciudad-cerca-movil.webp"><img class="skyline skyline--medio" src="img/ciudad-cerca.webp" alt="" width="6156" height="610" decoding="async"></picture></div>
+          
+          <div class="calle__pista" id="callePista">
+
+            <div class="calle__intro" id="ecommerce">
+              <h2>Calle e-commerce</h2>
+              <p>Cada tienda de esta calle es un proyecto real. No siempre hubo métricas ni tiempo para entrevistar usuarios, así que adapté el proceso con análisis competitivo, benchmarking y evaluaciones heurísticas según el contexto de cada marca.</p>
+              <div class="plataformas">
+                <p class="plataformas__titulo">Plataformas con las que trabajo</p>
+                <ul class="plataformas__logos">
+                  <li><img src="img/logo-tiendanube.svg" alt="Tiendanube" height="22" decoding="async"></li>
+                  <li><img src="img/logo-shopify.png" alt="Shopify" height="22" decoding="async"></li>
+                  <li><img src="img/logo-prestashop.png" alt="PrestaShop" height="22" decoding="async"></li>
+                </ul>
+              </div>
+              <p class="calle__guia">Tocá una vidriera para entrar al caso</p>
+            </div>
+
+            <button class="tienda" type="button" data-caso="chandon" style="--fachada:#F7DCD8;--toldo-a:#E0667F;--toldo-b:#FBEFE6;--cartel:#7A2334;--lado:#D9A9A4">
+              <span class="tienda__cartel">Frappé Wine Store</span>
+              <span class="tienda__toldo" aria-hidden="true"></span>
+              <span class="tienda__vidriera" style="--foco:18%"><img src="img/captura-chandon.webp" alt="Landing de Chandon Délice Rosé con la botella sobre fondo rosado" width="1600" height="1000" decoding="async"></span>
+              <span class="tienda__info">
+                <span class="tienda__nombre">Landing de lanzamiento: Chandon Délice Rosé</span>
+                <span class="tienda__tags">Diseño UI, encuestas internas</span>
+              </span>
+              <span class="tienda__puerta" aria-hidden="true"></span>
+              <span class="tecla tecla--chica tienda__cta">Entrar al caso</span>
+            </button>
+
+            <button class="tienda" type="button" data-caso="ceramicas" style="--fachada:#EFE6DA;--toldo-a:#C8352B;--toldo-b:#231C1A;--cartel:#231C1A;--lado:#C9B9A6">
+              <span class="tienda__cartel">Reposición Cerámicas</span>
+              <span class="tienda__toldo" aria-hidden="true"></span>
+              <span class="tienda__vidriera" style="--foco:50%"><img src="img/captura-ceramicas.webp" alt="Home de Reposición Cerámicas con el carrusel de destacados y botones Comprar en negro" width="1600" height="1000" decoding="async"></span>
+              <span class="tienda__info">
+                <span class="tienda__nombre">Rediseño de home, rubro construcción</span>
+                <span class="tienda__tags">Diseño UI, análisis competitivo</span>
+              </span>
+              <span class="tienda__puerta" aria-hidden="true"></span>
+              <span class="tecla tecla--chica tienda__cta">Entrar al caso</span>
+            </button>
+
+            <button class="tienda" type="button" data-caso="cherry" style="--fachada:#F6EDE2;--toldo-a:#8E2230;--toldo-b:#F2E1CD;--cartel:#8E2230;--lado:#D7C3AE">
+              <span class="tienda__cartel">Cherry Season</span>
+              <span class="tienda__toldo" aria-hidden="true"></span>
+              <span class="tienda__vidriera" style="--foco:50%"><img src="img/captura-cherry.webp" alt="Home de Cherry Season con banner de café de especialidad" width="1600" height="1000" decoding="async"></span>
+              <span class="tienda__info">
+                <span class="tienda__nombre">Rediseño de home y ficha de producto</span>
+                <span class="tienda__tags">Identidad visual, métricas</span>
+              </span>
+              <span class="tienda__puerta" aria-hidden="true"></span>
+              <span class="tecla tecla--chica tienda__cta">Entrar al caso</span>
+            </button>
+
+            <button class="tienda" type="button" data-caso="mafacha" style="--fachada:#E8E2D4;--toldo-a:#1F3B6E;--toldo-b:#F08A24;--cartel:#1F3B6E;--lado:#C4BBA8">
+              <span class="tienda__cartel">Mafacha</span>
+              <span class="tienda__toldo" aria-hidden="true"></span>
+              <span class="tienda__vidriera" style="--foco:40%"><img src="img/captura-mafacha.webp" alt="Home de Mafacha con banner de destacados" width="1600" height="1000" decoding="async"></span>
+              <span class="tienda__info">
+                <span class="tienda__nombre">Rediseño con la lógica de Mercado Libre</span>
+                <span class="tienda__tags">Benchmarking</span>
+              </span>
+              <span class="tienda__puerta" aria-hidden="true"></span>
+              <span class="tecla tecla--chica tienda__cta">Entrar al caso</span>
+            </button>
+
+            <button class="tienda" type="button" data-caso="lalomita" style="--fachada:#EEF0D4;--toldo-a:#6F8F3A;--toldo-b:#F3E7A0;--cartel:#3F5F24;--lado:#CDD2A6">
+              <span class="tienda__cartel">La Lomita</span>
+              <span class="tienda__toldo" aria-hidden="true"></span>
+              <span class="tienda__vidriera"><img src="img/captura-lalomita.webp" alt="Home de La Lomita después de la auditoría" width="1600" height="1000" decoding="async"></span>
+              <span class="tienda__info">
+                <span class="tienda__nombre">Auditoría UI: orden, contraste y jerarquía</span>
+                <span class="tienda__tags">Auditoría UI, desktop y mobile</span>
+              </span>
+              <span class="tienda__puerta" aria-hidden="true"></span>
+              <span class="tecla tecla--chica tienda__cta">Entrar al caso</span>
+            </button>
+
+            <button class="tienda" type="button" data-caso="unmundo" style="--fachada:#F7E4D4;--toldo-a:#E0762E;--toldo-b:#9FDDE3;--cartel:#B4501A;--lado:#D8BFAA">
+              <span class="tienda__cartel">Un Mundo</span>
+              <span class="tienda__toldo" aria-hidden="true"></span>
+              <span class="tienda__vidriera"><img src="img/captura-unmundo.webp" alt="Home de Un Mundo después de la auditoría" width="1600" height="1000" decoding="async"></span>
+              <span class="tienda__info">
+                <span class="tienda__nombre">Auditoría UX/UI fundamentada en leyes de UX</span>
+                <span class="tienda__tags">Auditoría UX/UI, estrategia de plantilla</span>
+              </span>
+              <span class="tienda__puerta" aria-hidden="true"></span>
+              <span class="tecla tecla--chica tienda__cta">Entrar al caso</span>
+            </button>
+
+            <!-- Al final de la calle: la biblioteca. Se entra por la puerta. -->
+            <div class="biblio-edificio" id="biblioEdificio" aria-hidden="true">
+              <div class="biblio-edificio__puerta" id="puerta"></div>
+              <img class="biblio-edificio__img" src="img/biblioteca-fachada.webp" alt="" width="1127" height="1396" decoding="async">
+            </div>
+          </div>
+
+          <div class="vereda" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- efecto de tubo de rayos catódicos (se apaga al entrar) -->
+      <div class="crt" id="crt" aria-hidden="true"></div>
+      <div class="encendido" id="encendido" aria-hidden="true"><span></span></div>
+    </div>
+
+    <!-- La computadora: imagen con el recorte de la pantalla -->
+    <div class="marco" id="marcoPC">
+      <div class="marco__paralaje" id="pcParalaje">
+        <picture><source media="(max-width: 900px)" srcset="img/escena-pc-movil.webp"><img class="pc__img" id="pcImg" src="img/escena-pc.webp" alt="" width="4000" height="2600" fetchpriority="high"></picture>
+      </div>
+    </div>
+
+    <div class="hero" id="hero">
+      <h1 class="hero__titulo"><span class="linea">Georgina</span> <span class="linea">Ferrante</span></h1>
+      <p class="hero__rol linea">Product Designer y UX Engineer. Diseño productos digitales conectando investigación, interfaz e implementación.</p>
+      <div class="teclas linea">
+        <button class="tecla tecla--verde" type="button" data-ir="ecommerce">Ver mis trabajos</button>
+        <a class="tecla" href="CV-Georgina-Ferrante.pdf" download="CV-Georgina-Ferrante.pdf">Descargar CV</a>
+      </div>
+      <p class="hero__pista linea"><span class="raton" aria-hidden="true"></span>Scrolleá para entrar a la pantalla</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       ESCENA 2 — LA BIBLIOTECA Y MI LIBRO
+       ========================================================== -->
+  <section class="escena escena--biblio" id="libro" aria-label="Mi libro">
+    <div class="cubre" id="biblioCubre">
+      <picture><source media="(max-width: 900px)" srcset="img/biblioteca-fondo-movil.webp"><img class="cubre__img" src="img/biblioteca-fondo.webp" alt="" decoding="async"></picture>
+      <!-- sombras de contacto: los libros se ven apoyados en el estante -->
+      <div class="libros-sombra" aria-hidden="true"></div>
+      <div class="libro3d-escena">
+        <div class="libro3d" id="libro3d">
+          <div class="libro3d__cara libro3d__tapa"></div>
+          <div class="libro3d__cara libro3d__contratapa"></div>
+          <div class="libro3d__cara libro3d__lomo"><span>Cómo hacer un buen regalo</span></div>
+          <div class="libro3d__cara libro3d__hojas"></div>
+          <div class="libro3d__cara libro3d__arriba"></div>
+          <div class="libro3d__cara libro3d__abajo"></div>
+        </div>
+      </div>
+      <picture><source media="(max-width: 900px)" srcset="img/biblioteca-libros-movil.webp"><img class="cubre__img cubre__img--frente" src="img/biblioteca-libros.webp" alt="" decoding="async"></picture>
+    </div>
+    <div class="biblio__sombra" id="biblioSombra" aria-hidden="true"></div>
+
+    <article class="panel panel--libro" id="panelLibro">
+      <h2>Cómo hacer un buen regalo</h2>
+      <p class="panel__bajada">Mi libro, publicado en Amazon.</p>
+      <p>Llevé la metodología que usan Google y Apple para conocer a sus usuarios a una pregunta cotidiana: qué regalarle a alguien. Es Design Thinking aplicado a la vida real, para no volver a regalar algo al azar.</p>
+      <div class="teclas">
+        <a class="tecla tecla--verde" href="https://www.amazon.com/dp/B0H56P177T?language=es" target="_blank" rel="noopener">Ver en Amazon</a>
+      </div>
+
+      <p class="panel__chico panel__sigue">Seguí bajando: en esta biblioteca también están mis casos de investigación UX.</p>
+    </article>
+
+    <!-- CASOS DE INVESTIGACIÓN: reemplaza al panel del libro, en el mismo lugar.
+         Cada tarjeta abre el caso completo en Behance (otra pestaña). -->
+    <div class="columna" id="investigacion">
+    <article class="panel panel--investigacion">
+      <p class="panel__sobre panel__sobre--google"><svg class="logo-google" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Certificado de Diseño UX de Google</p>
+      <h2>UX Research: dos casos de principio a fin</h2>
+      <p>Casos completos con el proceso de Design Thinking: entrevistas, perfiles de usuario, mapas de recorrido, prototipos y tests de usabilidad.</p>
+      <div class="fichas">
+        <a class="ficha" href="https://www.behance.net/gallery/169849457/UX-Realidad-Virtual-para-Salon-de-Bodas" target="_blank" rel="noopener">
+          <img class="ficha__img" src="img/caso-bodas-portada.webp" alt="" width="1400" height="1400" decoding="async">
+          <span class="ficha__texto">
+            <strong>Recorrido virtual por un salón de bodas</strong>
+            <span>Realidad virtual para reservar sin viajar. Enero a abril 2023.</span>
+            <span class="ficha__cta">Ver caso en Behance <span aria-hidden="true">↗</span></span>
+          </span>
+        </a>
+        <a class="ficha" href="https://www.behance.net/gallery/247436425/Caso-Practico-Bomberos" target="_blank" rel="noopener">
+          <img class="ficha__img" src="img/caso-bomberos-portada.webp" alt="" width="1400" height="1400" decoding="async">
+          <span class="ficha__texto">
+            <strong>Comunicación entre bomberos y ciudadanos</strong>
+            <span>App para pedir ayuda en una emergencia. Abril a mayo 2023.</span>
+            <span class="ficha__cta">Ver caso en Behance <span aria-hidden="true">↗</span></span>
+          </span>
+        </a>
+      </div>
+    </article>
+    <p class="seguir"><span class="raton" aria-hidden="true"></span>Seguí bajando, el recorrido continúa</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       ESCENA 3 — EL PORTAL Y EL ESPACIO (SuperGadget X100)
+       ========================================================== -->
+  <section class="escena escena--portal" id="gadget" aria-label="SuperGadget X100">
+   <div class="iris" id="iris"><div class="iris__dentro" id="irisDentro">
+    <div class="espacio" id="espacio">
+      <div class="espacio__fondo" id="espacioFondo">
+        <picture><source media="(max-width: 900px)" srcset="img/espacio-movil.webp"><img src="img/espacio.webp" alt="" decoding="async"></picture>
+      </div>
+      <div class="estrellas" aria-hidden="true"></div>
+
+      <div class="gadget" id="gadget3d" aria-hidden="true">
+        <span class="gadget__haz" id="gadgetHaz"></span>
+        <div class="gadget__flota">
+          <!-- halo celeste: la luz del propio gadget sobre el espacio (flota con él) -->
+          <span class="gadget__halo"></span>
+          <!-- el gadget en 3D (js/gadget3d.js). La imagen queda de respaldo si el equipo no tiene 3D -->
+          <canvas class="gadget__3d" id="gadgetCanvas"></canvas>
+          <img class="gadget__img gadget__respaldo" src="img/gadget.webp" alt="" width="669" height="1226" decoding="async">
+        </div>
+      </div>
+
+      <article class="g-panel" data-lado="izq">
+        <h2>SuperGadget X100</h2>
+        <p class="panel__bajada">Crear un producto desde cero y venderlo online.</p>
+        <p>Fue un examen final de e-commerce: inventar un producto innovador y tecnológico, y presentarlo en un prototipo de alta fidelidad que mostrara cómo se vendería en un e-commerce.</p>
+      </article>
+
+      <article class="g-panel" data-lado="der">
+        <h3>La idea y la función</h3>
+        <p>Nació de Alexa y de la necesidad de proyectar imágenes. ¿Por qué no tener todo en uno?</p>
+        <p>SuperGadget hace lo que hace un asistente de voz, con inteligencia artificial, y además proyecta imágenes sobre cualquier superficie plana.</p>
+      </article>
+
+      <article class="g-panel" data-lado="izq">
+        <h3>Cómo elegí a los competidores</h3>
+        <ul class="tildes">
+          <li>Ser tecnológicos</li>
+          <li>Pertenecer al rubro robótica</li>
+          <li>Tener un producto de estilo minimalista</li>
+          <li>Tener un producto único</li>
+          <li>Tener un precio poco accesible</li>
+        </ul>
+      </article>
+
+      <article class="g-panel" data-lado="der">
+        <h3>Qué detecté a nivel UI</h3>
+        <p>El benchmarking guió la presentación web y la comercialización. Los competidores repetían:</p>
+        <ul class="chips">
+          <li>Efectos parallax</li><li>Minimalismo</li><li>Letras muy grandes junto a letras muy chicas</li><li>Imágenes enormes y de alta calidad</li><li>Líneas finas</li><li>CTA claros</li><li>Fondos negros</li><li>Íconos con identidad</li><li>Cada sector usa toda la pantalla</li>
+        </ul>
+      </article>
+
+      <article class="g-panel g-panel--final" data-lado="izq">
+        <h3>Landing de lanzamiento</h3>
+        <p>El resultado: una landing de alta fidelidad con la lógica de los grandes lanzamientos tecnológicos, oferta especial incluida.</p>
+        <div class="teclas">
+          <button class="tecla tecla--verde" type="button" data-caso="gadget">Ver el caso completo</button>
+          <a class="tecla" href="https://www.figma.com/proto/eLRMPaX648ObD2yioK3ct5/Untitled?node-id=2205-385&amp;t=fjBKGwczsaWt3ocQ-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1" target="_blank" rel="noopener">Ver prototipo</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="marco" id="marcoPortal">
+      <div class="cubre" id="portalCubre">
+        <picture><source media="(max-width: 900px)" srcset="img/portal-nave-movil.webp"><img class="cubre__img" src="img/portal-nave.webp" alt="" decoding="async"></picture>
+      </div>
+    </div>
+    <div class="portal__texto" id="portalTexto">
+      <p>Un producto inventado desde cero</p>
+    </div>
+   </div></div>
+  </section>
+
+  <!-- ==========================================================
+       ESCENA 4 — EL ATRIL (ilustración y diseño gráfico)
+       ========================================================== -->
+  <section class="escena escena--atril" id="ilustraciones" aria-label="Ilustración y diseño gráfico">
+    <div class="lienzo" id="lienzo">
+      <div class="lienzo__portada" id="lienzoPortada">
+        <h2>Ilustración<br>y diseño gráfico</h2>
+        <p>Antes de las interfaces, el color.</p>
+      </div>
+      <div class="lienzo__pista" id="lienzoPista">
+        <figure class="obra obra--vertical">
+          <button class="obra__marco" type="button" data-caso="branca" aria-label="Ver la ilustración La pieza única"><img src="img/ilustracion-branca.webp" alt="Ilustración La pieza única: una pieza de ajedrez con la corona de Branca sobre un tablero" width="1200" height="1600" decoding="async"></button>
+          <figcaption><strong>La pieza única</strong>Concurso Fernet Branca 2021. Ilustración vectorial en Corel Draw.</figcaption>
+        </figure>
+        <figure class="obra obra--horizontal">
+          <button class="obra__marco" type="button" data-caso="mapa" aria-label="Ver el mapa ilustrado"><img src="img/ilustracion-mapa.webp" alt="Mapa ilustrado del mundo con personajes y paisajes de cada región" width="2400" height="1500" decoding="async"></button>
+          <figcaption><strong>Mapa ilustrado de los mundos Disney</strong>Investigación de flora, fauna y ecosistemas de cada región. Recortes y vectorización en Corel Draw.</figcaption>
+        </figure>
+        <figure class="obra obra--serie">
+          <div class="serie">
+            <img src="img/pintura-tren.webp" alt="Pintura de un paisaje con lago y un tren rojo" width="1200" height="900" decoding="async">
+            <img src="img/pintura-bodegon.webp" alt="Naturaleza muerta con jarra, pan y ciruelas" width="1200" height="900" decoding="async">
+            <img src="img/pintura-cascada.webp" alt="Paisaje otoñal con cascadas" width="1200" height="900" decoding="async">
+            <img src="img/pintura-lago.webp" alt="Pinturas de un bote en un lago y un bosque rojo, en el atril" width="1200" height="900" decoding="async">
+          </div>
+          <figcaption><strong>Pintura</strong>Tres años en la Facultad de Artes Visuales me dejaron una sensibilidad por el color y cómo impacta en lo emocional.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="marco" id="marcoAtril">
+      <div class="cubre" id="atrilCubre">
+        <img class="cubre__img" src="img/atril.webp" alt="" decoding="async">
+      </div>
+    </div>
+    <div class="atril__texto" id="atrilTexto">
+      <h2>El taller</h2>
+      <p>Más de seis años en diseño gráfico y tres en Artes Visuales construyeron mi base visual. UX sumó otra capa: entender el problema antes de diseñar.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       ESCENA 5 — LA OFICINA DE NOCHE (puente al cierre)
+       ========================================================== -->
+  <section class="escena escena--oficina" aria-label="Transición al cierre">
+    <div class="cubre" id="oficinaCubre">
+      <div class="ventana-noche" id="ventanaNoche" aria-hidden="true"><img src="img/ciudad-noche.webp" alt="" width="1536" height="1024" decoding="async"></div>
+      <div class="vidrio" aria-hidden="true"></div>
+      <img class="cubre__img" src="img/oficina.webp" alt="" decoding="async">
+    </div>
+
+    <!-- SEO: las tiendas de la calle, ahora vistas de noche, siguen vendiendo -->
+    <div class="columna columna--izq" id="panelSeo">
+    <article class="panel panel--seo">
+      <p class="panel__sobre">SEO aplicado a producto</p>
+      <h2>Una competencia complementaria</h2>
+      <p>La experiencia también empieza antes de entrar al sitio. Creé <strong>SEO Express</strong> para diagnosticar tiendas online y medir el impacto de los cambios con Search Console.</p>
+      <ul class="cifras">
+        <li><span class="cifras__num">3</span><span>plataformas: Tiendanube, Shopify y PrestaShop</span></li>
+      </ul>
+      <ul class="panel__lista">
+        <li>Auditoría y diagnóstico de toda la cartera de clientes</li>
+        <li>Palabras clave según región y tipo de cliente, mayorista o minorista</li>
+        <li>Arquitectura de categorías y metadatos</li>
+        <li>Seguimiento antes y después con Google Search Console</li>
+      </ul>
+    </article>
+    <p class="seguir"><span class="raton" aria-hidden="true"></span>Seguí bajando, falta el final</p>
+    </div>
+
+    <!-- RESULTADOS DE SEO en tarjetas de vidrio (sin nombres de clientes) -->
+    <section class="seo-cristal" id="seoVidrio" aria-label="Resultados de SEO Express en Google">
+      <header class="cristal cristal--cabecera">
+        <p class="cristal__sobre">Resultados en Google</p>
+        <p class="cristal__periodo">8 tiendas medidas día a día, de junio a agosto de 2026</p>
+      </header>
+      <div class="cristal-grilla">
+        <div class="cristal cristal--cifra"><p class="cristal__num" data-hasta="88" data-formato="porcentaje">88 %</p><p>de las tiendas intervenidas aumentó sus impresiones en Google</p></div>
+        <div class="cristal cristal--cifra"><p class="cristal__num" data-hasta="44" data-formato="pct">+44 %</p><p>de suba promedio entre las que crecieron</p></div>
+        <div class="cristal cristal--cifra"><p class="cristal__num" data-hasta="4" data-formato="de8">4 <small>de 8</small></p><p>tiendas mejoraron su CTR</p></div>
+        <div class="cristal cristal--cifra"><p class="cristal__num" data-hasta="131" data-formato="pct">+131 %</p><p>el mayor crecimiento de una tienda</p></div>
+      </div>
+      <div class="cristal cristal--barras">
+        <p class="cristal__sobre">Las 7 tiendas que crecieron: impresiones, primera vs. última semana</p>
+        <ul class="barras">
+            <li><span>Tienda 1</span><i style="--v:1.000"></i><b>+131 %</b></li>
+            <li><span>Tienda 2</span><i style="--v:0.359"></i><b>+47 %</b></li>
+            <li><span>Tienda 3</span><i style="--v:0.313"></i><b>+41 %</b></li>
+            <li><span>Tienda 4</span><i style="--v:0.298"></i><b>+39 %</b></li>
+            <li><span>Tienda 5</span><i style="--v:0.252"></i><b>+33 %</b></li>
+            <li><span>Tienda 6</span><i style="--v:0.092"></i><b>+12 %</b></li>
+            <li><span>Tienda 7</span><i style="--v:0.061"></i><b>+8 %</b></li>
+        </ul>
+        <p class="cristal__nota">Resultados variables según el estado inicial, el alcance de la intervención y las características de cada proyecto. En el caso sin mejora se identificaron limitaciones fuera del alcance del trabajo, como categorías sin productos cargados. Los nombres de las tiendas se omiten por confidencialidad.</p>
+      </div>
+    </section>
+  </section>
+
+  <!-- ==========================================================
+       ESCENA 6 — CIERRE: salimos de la pantalla y volvemos a la
+       computadora del principio
+       ========================================================== -->
+  <section class="escena escena--cierre" id="gracias" aria-label="Gracias">
+    <div class="pantalla-fin" id="pantallaFin">
+      <div class="pantalla-fin__cielo" aria-hidden="true"></div>
+      <article class="ventana ventana--fin">
+        <header class="ventana__barra">
+          <span class="ventana__titulo">gracias.txt</span>
+          <span class="ventana__botones" aria-hidden="true"><i></i><i></i><i></i></span>
+        </header>
+        <div class="ventana__cuerpo ventana__cuerpo--fin">
+          <p class="fin__linea">&gt; fin del recorrido<span class="cursor" aria-hidden="true">_</span></p>
+          <p class="fin__gracias">¡Gracias por pasar!</p>
+        </div>
+      </article>
+      <div class="crt crt--fin" id="crtFin" aria-hidden="true"></div>
+    </div>
+    <div class="marco" id="marcoFin">
+      <div class="marco__paralaje">
+        <div class="pc__tapa" id="tapaFin" aria-hidden="true"></div>
+        <picture><source media="(max-width: 900px)" srcset="img/escena-pc-movil.webp"><img class="pc__img" id="pcImgFin" src="img/escena-pc.webp" alt="" width="4000" height="2600" decoding="async"></picture>
+      </div>
+    </div>
+    <div class="hero hero--fin" id="textoFin">
+      <h2 class="hero__titulo">Gracias por llegar hasta acá</h2>
+      <p class="hero__rol">Espero que hayas disfrutado el recorrido tanto como yo disfruté armarlo.</p>
+      <p class="fin__firma">Georgina Ferrante</p>
+      <div class="teclas">
+        <button class="tecla tecla--verde" type="button" data-ir="inicio">Volver al inicio</button>
+        <a class="tecla" href="CV-Georgina-Ferrante.pdf" download="CV-Georgina-Ferrante.pdf">Descargar CV</a>
+        <a class="tecla" href="https://www.linkedin.com/in/georgina-ferrante-010544239/" target="_blank" rel="noopener">Ver mi LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Este bloque vacío es el "recorrido": su alto define cuánto
+     scroll dura toda la animación. main.js lo calcula solo. -->
+<div class="recorrido" id="recorrido" aria-hidden="true"></div>
+
+
+<!-- ============================================================
+     FICHA DE CASO (se abre al tocar una tienda, un libro, etc.)
+     ============================================================ -->
+<div class="caso" id="caso" hidden>
+  <div class="caso__fondo" data-cerrar></div>
+  <section class="caso__hoja" role="dialog" aria-modal="true" aria-labelledby="casoTitulo" data-lenis-prevent>
+    <header class="caso__cabecera">
+      <button class="tecla tecla--chica" type="button" data-cerrar>Cerrar</button>
+      <div class="caso__nav">
+        <button class="tecla tecla--chica" type="button" id="casoAnterior">Anterior</button>
+        <button class="tecla tecla--chica" type="button" id="casoSiguiente">Siguiente</button>
+      </div>
+    </header>
+    <div class="caso__contenido" id="casoContenido"></div>
+  </section>
+</div>
+
+<!-- ============================================================
+     CONTENIDO DE LOS CASOS
+     data-grupo agrupa los casos para los botones Anterior/Siguiente.
+     ============================================================ -->
+
+<template id="caso-chandon" data-grupo="ecommerce">
+  <p class="caso__marca">Frappé Wine Store</p>
+  <h2 id="casoTitulo">Landing de lanzamiento: Chandon Délice Rosé</h2>
+  <ul class="caso__ficha"><li>Diseño UI</li><li>Encuestas internas</li><li>Prototipos A/B</li></ul>
+  <img class="caso__img" src="img/captura-chandon.webp" alt="Landing de Chandon Délice Rosé en desktop" width="1600" height="1000" loading="lazy" decoding="async">
+
+  <h3>El desafío</h3>
+  <p>Un e-commerce de vinos necesitaba pasar de visitas a ventas en el lanzamiento de un producto nuevo, con las fiestas encima y poco tiempo.</p>
+
+  <h3>El verdadero valor del producto</h3>
+  <p>Chandon es una marca premium e instalada en Argentina. El valor declarado estaba en su fórmula, pero el valor real estaba en el envase: tonos pastel, celeste y rosado. El objetivo del usuario era claro: <em>quedar bien en las fiestas llevando algo lindo</em>.</p>
+  <p>Probé el producto sobre fondo blanco y se percibía como uno más. Elegí fondos que acompañaran sus colores.</p>
+
+  <h3>El dilema del CTA</h3>
+  <p>La primera opción tenía un CTA celeste que acompañaba el atractivo del envase. La segunda buscaba más contraste entre botón y fondo. Como diseñadora gráfica me convencía la primera; como diseñadora UX, la segunda debería resaltar más.</p>
+  <div class="caso__dos">
+    <figure><img class="caso__img" src="img/ficha-chandon-a.webp" alt="Opción A: CTA celeste que acompaña los colores del envase" loading="lazy" decoding="async"><figcaption>Opción A: CTA celeste.</figcaption></figure>
+    <figure><img class="caso__img" src="img/ficha-chandon-b.webp" alt="Opción B: CTA blanco con más contraste" loading="lazy" decoding="async"><figcaption>Opción B: CTA de mayor contraste.</figcaption></figure>
+  </div>
+
+  <h3>Pruebas internas</h3>
+  <p>Sin recursos para testear con usuarios reales ni tiempo para un A/B, hice pruebas internas y, para reducir el sesgo del equipo, encuesté también a personas fuera del rubro. Los resultados favorecieron al primer prototipo.</p>
+  <blockquote>En productos exclusivos hay que pensar en qué tipo de usuario compra, aunque eso no cumpla al pie de la letra la regla del contraste alto.</blockquote>
+
+  <h3>En un escenario ideal</h3>
+  <p>Haría dos tests A/B por dispositivo: en desktop, para ver qué CTA capta más atención con menos fricción; en mobile, para evaluar la accesibilidad real, porque las pantallas chicas exponen problemas de contraste que el escritorio esconde.</p>
+  <div class="teclas"><a class="tecla tecla--verde" href="https://www.figma.com/proto/Z4ehfuQI2FUzSmz2FQeYRo/Chandon?node-id=61-63&amp;t=dI2jKm9bdcvj1AKl-0&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1" target="_blank" rel="noopener">Ver prototipo en Figma</a></div>
+</template>
+
+<template id="caso-ceramicas" data-grupo="ecommerce">
+  <p class="caso__marca">Reposición Cerámicas</p>
+  <h2 id="casoTitulo">Rediseño de home para un e-commerce de construcción</h2>
+  <ul class="caso__ficha"><li>Diseño UI</li><li>Análisis competitivo</li><li>Arquitectura de información</li></ul>
+  <img class="caso__img" src="img/captura-ceramicas.webp" alt="Home de Reposición Cerámicas después del rediseño" width="1600" height="1000" loading="lazy" decoding="async">
+
+  <h3>El objetivo</h3>
+  <p>Mejorar la experiencia de la home con un rediseño justificado desde el análisis competitivo. No había usuarios para entrevistar, ni métricas, ni mapas de calor.</p>
+
+  <h3>Ser competidor no es competir en experiencia</h3>
+  <p>Hay tres tipos de e-commerce: los que compiten por precio, por calidad o por lujo. Una marca puede vender mucho por su lugar en la memoria de la gente o por su local físico, aunque su tienda online no aplique principios de usabilidad. Por eso elegí como referencia sitios que compiten por precio (con catálogos grandes, útiles para pensar la arquitectura) y que además son buenos en experiencia de usuario.</p>
+  <blockquote>En UX no siempre conviene reinventar patrones conocidos. Los usuarios llegan con modelos mentales previos, por eso analicé estructuras validadas y las adapté a la marca.</blockquote>
+
+  <h3>La decisión clave: el rojo</h3>
+  <p>El rojo era uno de los mayores puntos de fricción. En diseño gráfico transmite una emoción clara; en interfaces significa alerta. Lo saqué de los lugares conflictivos, lo pasé a color secundario y dejé el negro como acento, también en el botón Comprar. La marca mantuvo su identidad sin incomodar al usuario.</p>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img caso__img--mock" src="img/ficha-ceramicas-antes.webp" alt="Reposición Cerámicas antes: el rojo en etiquetas y en todos los botones de compra." loading="lazy" decoding="async"><figcaption>el rojo en etiquetas y en todos los botones de compra.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-ceramicas-destacados-despues.webp" alt="Reposición Cerámicas después: el negro como acento en "Comprar"; el rojo queda para los descuentos." loading="lazy" decoding="async"><figcaption>el negro como acento en "Comprar"; el rojo queda para los descuentos.</figcaption></figure>
+  </div>
+
+  <p class="caso__rotulo">El rediseño en celular</p>
+  <img class="caso__img caso__img--celular" src="img/ficha-ceramicas-mobile-despues.webp" alt="Home de Reposición Cerámicas rediseñada en celular" loading="lazy" decoding="async">
+
+  <h3>A futuro</h3>
+  <p>Replantear el banner principal para que acompañe la experiencia y medir con mapas de calor dónde hay fricción en la home.</p>
+  <div class="teclas"><a class="tecla tecla--verde" href="https://www.figma.com/proto/wsJ4ESmideZT3ZUtDB9fXT/Punto-ceramico?node-id=2003-28&amp;t=amNLtYlZI4Qe614u-0&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;page-id=0%3A1" target="_blank" rel="noopener">Ver prototipo en Figma</a></div>
+</template>
+
+<template id="caso-cherry" data-grupo="ecommerce">
+  <p class="caso__marca">Cherry Season, Tiendanube</p>
+  <h2 id="casoTitulo">Rediseño de home y ficha de producto</h2>
+  <ul class="caso__ficha"><li>Identidad visual</li><li>Regla 60-30-10</li><li>Métricas</li></ul>
+  <img class="caso__img" src="img/captura-cherry.webp" alt="Home rediseñada de Cherry Season" width="1600" height="1000" loading="lazy" decoding="async">
+
+  <h3>El desafío</h3>
+  <p>El sitio salió de implementación demasiado genérico. El packaging tenía identidad, pero la marca todavía no. El objetivo: que quien entre sienta que está en Cherry Season antes incluso de tener una identidad visual cerrada.</p>
+
+  <h3>Color con sentido</h3>
+  <p>Probé la regla 60-30-10 con distintas tonalidades: 60% blanco de base, 30% rosados y tierras que remiten al packaging y 10% de verde para los CTA. El verde encaja en la paleta y además habla del origen del café.</p>
+  <p>Como todos los cafés compartían el mismo envase, la primera imagen de cada miniatura muestra las notas del café y no el paquete. Los banners usan imágenes naturales que evocan ese momento de preparar café en casa.</p>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img caso__img--mock" src="img/ficha-cherry-home-antes.webp" alt="Cherry Season antes: una home genérica, con un banner de descuento como protagonista." loading="lazy" decoding="async"><figcaption>una home genérica, con un banner de descuento como protagonista.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-cherry-home-despues.webp" alt="Cherry Season después: 60% blanco, tonos tierra del packaging y una imagen natural del café." loading="lazy" decoding="async"><figcaption>60% blanco, tonos tierra del packaging y una imagen natural del café.</figcaption></figure>
+  </div>
+  <figure class="caso__destacado"><img class="caso__img" src="img/ficha-cherry-miniaturas.webp" alt="Carrusel de café de especialidad con las notas de sabor en cada miniatura" loading="lazy" decoding="async"><figcaption>Miniaturas con las notas del café en lugar del mismo paquete repetido.</figcaption></figure>
+
+  <h3>Ficha de producto: conversión y métricas</h3>
+  <p>Después del rediseño, Marketing detectó fricción en la ficha. Elegir bien la molienda es clave: una elección incorrecta puede hacer que el café no sirva para el método de preparación del usuario. La interfaz no ayudaba a entender la diferencia.</p>
+  <p>La propuesta: una imagen por molienda que muestre para qué cafetera sirve, y una descripción con jerarquía que explique cada opción en lenguaje simple.</p>
+  <div class="caso__dos">
+    <figure><img class="caso__img caso__img--mock" src="img/ficha-cherry-descripcion.webp" alt="Ficha de producto con la descripción ordenada por origen, características, perfil de sabor y moliendas" loading="lazy" decoding="async"><figcaption>Descripción con jerarquía y cada molienda explicada.</figcaption></figure>
+    <figure><img class="caso__img caso__img--mock" src="img/ficha-cherry-molienda.webp" alt="Selector de molienda en la ficha de producto" loading="lazy" decoding="async"><figcaption>Selector de molienda.</figcaption></figure>
+  </div>
+
+  <h3>A futuro</h3>
+  <p>El sitio va a evolucionar con nuevas métricas y con la identidad visual definitiva.</p>
+  <div class="teclas"><a class="tecla tecla--verde" href="https://www.figma.com/proto/Wqv5hACjI5987qsMTsSZOu/Untitled?node-id=476-146&amp;t=IblWVLYbNJGDd7Wq-1&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;fuid=1141828802680826295" target="_blank" rel="noopener">Ver prototipo en Figma</a></div>
+</template>
+
+<template id="caso-mafacha" data-grupo="ecommerce">
+  <p class="caso__marca">Mafacha</p>
+  <h2 id="casoTitulo">Rediseño con la lógica de Mercado Libre</h2>
+  <ul class="caso__ficha"><li>Benchmarking</li><li>Diseño UI</li><li>Patrones de confianza</li></ul>
+  <img class="caso__img" src="img/captura-mafacha.webp" alt="Home rediseñada de Mafacha" width="1600" height="1000" loading="lazy" decoding="async">
+
+  <h3>La estrategia</h3>
+  <p>Mafacha vende productos para la construcción y el hogar. Tenía los mismos productos, al mismo precio, en su sitio y en Mercado Libre, pero la gente confiaba más en Mercado Libre. Pidieron un e-commerce con identidad propia y la estrategia visual del marketplace.</p>
+
+  <h3>Cómo lo resolví</h3>
+  <p>Hice un benchmarking especializado en Mercado Libre para identificar sus buenas prácticas y reinventé el sitio con sus patrones más reconocibles: destacados por más vendidos, ofertas con cuenta regresiva, marcas con las que trabajan, categorías visuales y gift cards.</p>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-mafacha-ofertas-antes.webp" alt="Mafacha antes: ofertas sin urgencia ni jerarquía entre precio y descuento." loading="lazy" decoding="async"><figcaption>ofertas sin urgencia ni jerarquía entre precio y descuento.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-mafacha-ofertas-despues.webp" alt="Mafacha después: etiquetas de oferta, cuenta regresiva y el descuento junto al precio." loading="lazy" decoding="async"><figcaption>etiquetas de oferta, cuenta regresiva y el descuento junto al precio.</figcaption></figure>
+  </div>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-mafacha-herramientas-antes.webp" alt="Mafacha antes: un banner que empuja las cards y las corta." loading="lazy" decoding="async"><figcaption>un banner que empuja las cards y las corta.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-mafacha-herramientas-despues.webp" alt="Mafacha después: cada categoría como un carrusel propio, con acceso a "Ver todo"." loading="lazy" decoding="async"><figcaption>cada categoría como un carrusel propio, con acceso a "Ver todo".</figcaption></figure>
+  </div>
+  <p class="caso__rotulo">El rediseño en celular</p>
+  <img class="caso__img caso__img--celular" src="img/ficha-mafacha-mobile-despues.webp" alt="Home de Mafacha rediseñada en celular" loading="lazy" decoding="async">
+
+  <h3>A futuro</h3>
+  <p>Sumar métricas para detectar puntos de fricción y seguir iterando.</p>
+  <div class="teclas"><a class="tecla tecla--verde" href="https://www.figma.com/proto/9pi850MVljFS1a8HxSPjJC/Untitled?node-id=5-289&amp;t=aXzKQ6SGfggFETWX-1&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;page-id=0%3A1" target="_blank" rel="noopener">Ver prototipo en Figma</a></div>
+</template>
+<template id="caso-lalomita" data-grupo="ecommerce">
+  <p class="caso__marca">La Lomita</p>
+  <h2 id="casoTitulo">Auditoría UI: orden, contraste y jerarquía</h2>
+  <ul class="caso__ficha"><li>Auditoría UI</li><li>Desktop y mobile</li><li>Contraste</li><li>Microinteracciones</li></ul>
+  <img class="caso__img" src="img/captura-lalomita.webp" alt="Home de La Lomita después de la auditoría" loading="lazy" decoding="async">
+
+  <h3>El desafío</h3>
+  <p>La Lomita tiene una identidad clara, en amarillo y verde, pero su sitio se sentía desordenado: la estructura no guiaba la mirada hacia lo importante y varios elementos competían entre sí. Audité la versión de escritorio y la mobile para ordenar, dar contraste y devolverle jerarquía.</p>
+
+  <h3>Navegación</h3>
+  <ul class="caso__lista">
+    <li>El encabezado tenía <strong>dos buscadores repetidos</strong> y una estructura desordenada.</li>
+    <li>Los ítems del menú usaban un grosor de letra excesivo, que dificultaba la lectura rápida y distraía de los puntos focales.</li>
+    <li>El submenú de categorías era demasiado extenso: propuse reordenarlo y achicar los títulos principales para recorrerlo con comodidad.</li>
+  </ul>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-lalomita-header-antes.webp" alt="La Lomita antes: dos buscadores y un menú con letra muy gruesa." loading="lazy" decoding="async"><figcaption>dos buscadores y un menú con letra muy gruesa.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-lalomita-header-despues.webp" alt="La Lomita después: un solo buscador y un menú más liviano de leer." loading="lazy" decoding="async"><figcaption>un solo buscador y un menú más liviano de leer.</figcaption></figure>
+  </div>
+
+  <h3>Contraste y jerarquía</h3>
+  <ul class="caso__lista">
+    <li>En las categorías destacadas, los textos no se distinguían del fondo: mejoré el sombreado para que se lean.</li>
+    <li>Las tres categorías grandes se veían idénticas a las chicas y repetían las del primer carrusel. Recomendé imágenes de productos aplicados, con color, que no se repitan.</li>
+    <li>El banner de instalación de aberturas de PVC no contrastaba con su texto: sumé un sombreado que lo resuelve.</li>
+  </ul>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-lalomita-categorias-antes.webp" alt="La Lomita antes: los nombres de las categorías se pierden sobre las fotos." loading="lazy" decoding="async"><figcaption>los nombres de las categorías se pierden sobre las fotos.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-lalomita-categorias-despues.webp" alt="La Lomita después: fondos más oscuros: cada categoría se lee de un vistazo." loading="lazy" decoding="async"><figcaption>fondos más oscuros: cada categoría se lee de un vistazo.</figcaption></figure>
+  </div>
+
+  <h3>Señales falsas y coherencia</h3>
+  <ul class="caso__lista">
+    <li>Las tarjetas de beneficios parecían botones sin serlo. Quité sus márgenes para que no generen la falsa expectativa de poder presionarlas.</li>
+    <li>Los íconos de esas tarjetas tenían distintos grosores de línea: los unifiqué para dar coherencia visual.</li>
+    <li>Detalles que suman prolijidad: una marca desalineada en el carrusel y un ícono fuera de lugar en el footer.</li>
+    <li>No había <strong>hovers</strong>: agregué efectos a todos los botones para que el sitio responda a cada interacción.</li>
+  </ul>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-lalomita-beneficios-antes.webp" alt="La Lomita antes: tarjetas con borde que parecen botones." loading="lazy" decoding="async"><figcaption>tarjetas con borde que parecen botones.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-lalomita-beneficios-despues.webp" alt="La Lomita después: sin márgenes y con íconos de un mismo grosor de línea." loading="lazy" decoding="async"><figcaption>sin márgenes y con íconos de un mismo grosor de línea.</figcaption></figure>
+  </div>
+  <blockquote>Un elemento que parece un botón y no lo es genera una falsa expectativa. El diseño tiene que prometer solo lo que cumple.</blockquote>
+
+  <h3>Mobile</h3>
+  <ul class="caso__lista">
+    <li>Las mismas mejoras de contraste y diseño que en escritorio.</li>
+    <li>El buscador abría una barra con elementos desplazados, y el menú desplegable no coincidía con la identidad visual del resto.</li>
+    <li>En ambas versiones, las secciones estaban demasiado juntas: separarlas ayuda a entender la estructura de un vistazo.</li>
+  </ul>
+
+  <p class="caso__rotulo">Mobile</p>
+  <div class="comparacion comparacion--lado">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-lalomita-mobile-antes.webp" alt="La Lomita antes: secciones pegadas y botones desparejos." loading="lazy" decoding="async"><figcaption>secciones pegadas y botones desparejos.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-lalomita-mobile-despues.webp" alt="La Lomita después: secciones separadas y la misma identidad que en escritorio." loading="lazy" decoding="async"><figcaption>secciones separadas y la misma identidad que en escritorio.</figcaption></figure>
+  </div>
+  <div class="teclas"><a class="tecla tecla--verde" href="https://www.figma.com/proto/nUrHKjDZzaJzaxYupo3u3Z/Redise%C3%B1o-LaLomita?node-id=16-122&amp;t=pBngC1ccj6ODkQ6w-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=79%3A90&amp;show-proto-sidebar=1" target="_blank" rel="noopener">Ver prototipo en Figma</a></div>
+</template>
+
+<template id="caso-unmundo" data-grupo="ecommerce">
+  <p class="caso__marca">Un Mundo</p>
+  <h2 id="casoTitulo">Auditoría UX/UI fundamentada en leyes de UX</h2>
+  <ul class="caso__ficha"><li>Auditoría UX/UI</li><li>Leyes de UX</li><li>Tiendanube</li><li>Estrategia de plantilla</li></ul>
+  <img class="caso__img" src="img/captura-unmundo.webp" alt="Home de Un Mundo después de la auditoría" loading="lazy" decoding="async">
+
+  <h3>El contexto</h3>
+  <p>Un Mundo es una tienda de electro y tecnología con identidad naranja y cian, que compite contra marcas grandes que ya "educaron" al usuario. Armé un informe donde <strong>cada hallazgo remite a un fundamento</strong>, así el cliente entiende no solo qué cambiar sino por qué. Lo que funcionaba bien quedó fuera del informe, para no recomendar cambios innecesarios.</p>
+
+  <h3>Hallazgos de UX</h3>
+  <ul class="caso__lista">
+    <li>El carrusel de categorías incluía elementos que no eran categorías, y eso confunde.</li>
+    <li>El botón "Añadir al carrito" era demasiado grande y distraía del resto de la información de la ficha.</li>
+    <li>"Nosotros" no debería estar en el menú principal: cuantas más opciones, más le cuesta decidir al usuario.</li>
+    <li>En mobile, el botón del ojo en las cards tenía poco margen para tocarlo con precisión.</li>
+    <li>El menú, las categorías y el buscador no tenían hover: el sitio no respondía a la interacción.</li>
+  </ul>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-unmundo-header-antes.webp" alt="Un Mundo antes: "Nosotros" en el menú principal y ninguna categoría a la vista." loading="lazy" decoding="async"><figcaption>"Nosotros" en el menú principal y ninguna categoría a la vista.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-unmundo-header-despues.webp" alt="Un Mundo después: barra superior con envío gratis y accesos directos a categorías clave." loading="lazy" decoding="async"><figcaption>barra superior con envío gratis y accesos directos a categorías clave.</figcaption></figure>
+  </div>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-unmundo-producto-antes.webp" alt="Un Mundo antes: el botón de compra y el cálculo de envío compiten por la atención." loading="lazy" decoding="async"><figcaption>el botón de compra y el cálculo de envío compiten por la atención.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-unmundo-producto-despues.webp" alt="Un Mundo después: precio, cuotas y envío ordenados, con un botón de compra en su justa medida." loading="lazy" decoding="async"><figcaption>precio, cuotas y envío ordenados, con un botón de compra en su justa medida.</figcaption></figure>
+  </div>
+
+  <h3>Hallazgos de UI</h3>
+  <ul class="caso__lista">
+    <li>Las cards de producto no tenían jerarquía: faltaban etiquetas, financiación y colores distintos del naranja.</li>
+    <li>El precio estaba en naranja y las cuotas no se destacaban en ningún lugar, ni siquiera en la ficha.</li>
+    <li>Los íconos de categoría sobre fondos saturados perdían contraste entre figura y fondo.</li>
+    <li>Faltaba un juego entre negro y grises para jerarquizar, y colores saturados para resaltar lo importante.</li>
+    <li>Imágenes pixeladas e iconografía desactualizada bajan la calidad percibida frente a la competencia.</li>
+  </ul>
+  <div class="comparacion">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-unmundo-cards-antes.webp" alt="Un Mundo antes: cards sin cuotas visibles y con el precio en naranja." loading="lazy" decoding="async"><figcaption>cards sin cuotas visibles y con el precio en naranja.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-unmundo-cards-despues.webp" alt="Un Mundo después: precio en negro, cuotas y descuento con débito visibles en cada card." loading="lazy" decoding="async"><figcaption>precio en negro, cuotas y descuento con débito visibles en cada card.</figcaption></figure>
+  </div>
+  <blockquote>Que un dato esté disponible no es lo mismo que esté visible. Precio, cuotas y envío tienen que mostrarse de forma explícita.</blockquote>
+
+  <h3>Los fundamentos</h3>
+  <p>Cada punto del informe se apoya en uno o más principios:</p>
+  <ul class="caso__ficha caso__ficha--grande"><li>Ley de Jakob</li><li>Ley de Fitts</li><li>Ley de Hick</li><li>Figura y fondo (Gestalt)</li><li>Alineación (Gestalt)</li><li>Jerarquía visual</li><li>Codificación cromática</li><li>Reconocer antes que recordar</li><li>Legibilidad</li><li>Confianza y calidad percibida</li></ul>
+  <p>Por ejemplo, la ley de Jakob: el usuario trae expectativas de otros sitios de su rubro. Alejarse demasiado de esa lógica no solo genera fricción; también desconfianza.</p>
+
+  <h3>La decisión: no cambiar de plantilla</h3>
+  <p>Evalué tres plantillas de Tiendanube (Amazonas, la actual; Ipanema y Brasilia) para un sitio que busca la lógica de Mercado Libre. Recomendé <strong>continuar con la plantilla actual</strong>: cambiarla no resolvía por sí sola la falta de jerarquía, implicaba costos y tiempos cerca de la fecha de entrega, y esos problemas se podían resolver con código. El cambio de plantilla queda como paso futuro, después de un rediseño.</p>
+
+  <p class="caso__rotulo">Mobile</p>
+  <div class="comparacion comparacion--lado">
+    <figure><span class="comparacion__etiqueta">Antes</span><img class="caso__img" src="img/ficha-unmundo-mobile-antes.webp" alt="Un Mundo antes: ficha de producto en el sitio anterior." loading="lazy" decoding="async"><figcaption>ficha de producto en el sitio anterior.</figcaption></figure>
+    <figure><span class="comparacion__etiqueta comparacion__etiqueta--despues">Después</span><img class="caso__img" src="img/ficha-unmundo-mobile-despues.webp" alt="Un Mundo después: home nueva: banner, cuotas y categorías arriba de todo." loading="lazy" decoding="async"><figcaption>home nueva: banner, cuotas y categorías arriba de todo.</figcaption></figure>
+  </div>
+  <div class="teclas"><a class="tecla tecla--verde" href="https://www.figma.com/proto/xTcBqPREjWEp7WqF7diRoW/Redise%C3%B1o-UnMundo?node-id=131-1929&amp;t=ZXRRbngyX25lcNwP-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=131%3A1929&amp;show-proto-sidebar=1" target="_blank" rel="noopener">Ver prototipo en Figma</a></div>
+</template>
+
+<template id="caso-gadget" data-grupo="producto">
+  <p class="caso__marca">Examen final de e-commerce</p>
+  <h2 id="casoTitulo">SuperGadget X100: creación de producto y diseño responsive basado en benchmarking</h2>
+  <ul class="caso__ficha"><li>Creación de producto</li><li>Benchmarking</li><li>Prototipo de alta fidelidad</li></ul>
+  <div class="caso__render"><img class="" src="img/gadget-original.webp" alt="Render del SuperGadget X100" loading="lazy" decoding="async"></div>
+
+  <h3>La idea</h3>
+  <p>El producto se inspiró en Alexa y en la necesidad de proyectar imágenes. La pregunta fue simple: ¿por qué no tener todo en uno?</p>
+  <h3>La función</h3>
+  <p>Un asistente con inteligencia artificial que además proyecta imágenes en cualquier espacio, con rotación automática del proyector.</p>
+<img class="caso__img" src="img/ficha-gadget-rotacion.webp" alt="Rotación automática del gadget y proyección sobre una pared de oficina" loading="lazy" decoding="async">
+  <h3>Cómo seleccioné a los competidores</h3>
+  <p>Tenían que compartir características con el producto: ser tecnológicos, pertenecer al rubro robótica, tener un producto minimalista y único, y un precio poco accesible.</p>
+  <h3>Qué detecté a nivel UI</h3>
+  <p>Efectos parallax, minimalismo, contraste extremo entre letras muy grandes y muy chicas, imágenes enormes y de gran calidad, líneas finas, CTA claros, fondos negros, íconos con identidad y secciones que aprovechan toda la pantalla. Todo eso guió la landing.</p>
+  <div class="caso__dos">
+    <figure><img class="caso__img caso__img--mock" src="img/ficha-gadget-proyeccion.webp" alt="Pantalla mobile: IA integrada y proyección inteligente" loading="lazy" decoding="async"><figcaption>IA integrada y proyección inteligente.</figcaption></figure>
+    <figure><img class="caso__img caso__img--mock" src="img/ficha-gadget-apps.webp" alt="Pantalla mobile: todas las aplicaciones en un solo dispositivo" loading="lazy" decoding="async"><figcaption>Todas las aplicaciones en un solo dispositivo.</figcaption></figure>
+  </div>
+  <h3>El lanzamiento</h3>
+  <p>La landing cierra con una oferta especial de lanzamiento y un CTA directo a la compra.</p>
+  <img class="caso__img caso__img--mock" src="img/ficha-gadget-landing.webp" alt="Landing desktop del SuperGadget X100 en una notebook" loading="lazy" decoding="async">
+  <div class="teclas"><a class="tecla tecla--verde" href="https://www.figma.com/proto/eLRMPaX648ObD2yioK3ct5/Untitled?node-id=2205-385&amp;t=fjBKGwczsaWt3ocQ-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1" target="_blank" rel="noopener">Ver prototipo en Figma</a></div>
+</template>
+
+<template id="caso-branca" data-grupo="ilustracion">
+  <p class="caso__marca">Concurso Fernet Branca, 2021</p>
+  <h2 id="casoTitulo">La pieza única</h2>
+  <ul class="caso__ficha"><li>Corel Draw</li><li>Ilustración vectorial</li></ul>
+  <img class="caso__img caso__img--alto" src="img/ilustracion-branca.webp" alt="Ilustración La pieza única completa" width="1200" height="1600" loading="lazy" decoding="async">
+  <h3>La idea</h3>
+  <p>En una partida de ajedrez hay piezas únicas, que no se repiten y sin las que el juego no existe. Branca es eso en la mesa: una pieza irremplazable. La reina lleva su corona y el águila de la marca, y alrededor, las botellas quedan como piezas de un mismo tablero.</p>
+</template>
+
+<template id="caso-mapa" data-grupo="ilustracion">
+  <p class="caso__marca">Ilustración</p>
+  <h2 id="casoTitulo">Mapa ilustrado de los mundos Disney</h2>
+  <ul class="caso__ficha"><li>Investigación</li><li>Corel Draw</li><li>Vectorización</li></ul>
+  <p class="caso__rotulo">Tocá un pin para ver la región de cerca</p>
+  <div class="mapa" data-mapa>
+    <img class="mapa__img" src="img/ilustracion-mapa.webp" alt="Mapa ilustrado del mundo con personajes y paisajes de cada región" width="2400" height="1500" loading="lazy" decoding="async">
+    <button class="mapa__pin" type="button" data-region="0" data-nombre="América del Norte" data-img="img/mapa-america-norte.webp" style="left:24.3%;top:39.8%" aria-label="Ver de cerca: América del Norte"><span class="mapa__nombre">América del Norte</span></button>
+    <button class="mapa__pin" type="button" data-region="1" data-nombre="América Central" data-img="img/mapa-america-central.webp" style="left:21.3%;top:55.4%" aria-label="Ver de cerca: América Central"><span class="mapa__nombre">América Central</span></button>
+    <button class="mapa__pin" type="button" data-region="2" data-nombre="Europa del Norte" data-img="img/mapa-europa-norte.webp" style="left:50.3%;top:22.6%" aria-label="Ver de cerca: Europa del Norte"><span class="mapa__nombre">Europa del Norte</span></button>
+    <button class="mapa__pin" type="button" data-region="3" data-nombre="Europa" data-img="img/mapa-europa.webp" style="left:47.1%;top:35.3%" aria-label="Ver de cerca: Europa"><span class="mapa__nombre">Europa</span></button>
+    <button class="mapa__pin" type="button" data-region="4" data-nombre="África del Norte" data-img="img/mapa-africa-norte.webp" style="left:50.1%;top:50.3%" aria-label="Ver de cerca: África del Norte"><span class="mapa__nombre">África del Norte</span></button>
+    <button class="mapa__pin" type="button" data-region="5" data-nombre="África Central" data-img="img/mapa-africa-central.webp" style="left:58.4%;top:66.1%" aria-label="Ver de cerca: África Central"><span class="mapa__nombre">África Central</span></button>
+    <div class="mapa__zoom" hidden>
+      <img class="mapa__detalle" alt="">
+      <div class="mapa__barra">
+        <button class="tecla tecla--chica" type="button" data-mapa-volver>Volver al mapa</button>
+        <p class="mapa__titulo" aria-live="polite"></p>
+        <div class="mapa__flechas">
+          <button class="tecla tecla--chica" type="button" data-mapa-paso="-1" aria-label="Región anterior">‹</button>
+          <button class="tecla tecla--chica" type="button" data-mapa-paso="1" aria-label="Región siguiente">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3>Investigación</h3>
+  <p>Flora y fauna de cada región del mundo, sus ecosistemas y el origen de cada historia.</p>
+  <h3>Cómo se hizo</h3>
+  <p>En Corel Draw, a partir de recortes de imágenes y con vectorización de paisajes animados.</p>
+</template>
+
+</body>
+</html>
